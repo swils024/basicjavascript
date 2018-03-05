@@ -5,34 +5,19 @@
     <title>Hello World</title>
 </head>
 <body>
-    <div style="width:200px; border:solid 2px blue">
+    <div id="d1" style="width:200px; border:solid 2px blue">
         Hello <br />
-        in    <br />
+        in 
         the
         body
     </div>
+<script src="script1.js"></script>
 <script>
-    var a = "hello";
-    var msg = a + " dolly";
-    alert(msg);
-
-    var messageStart = "hello there";
-    var messageFull = messageStart + "dolly";
-    var a1 = "10";
-    var b1 = "12";
-    var c1 = a1 * b1; //multiplied
-    var d1 = a1 + b1; //joined not added
-
-    
-
-    var intA = Number(a1);
-    var intB = Number(b1);
-    var e1 = intA + intB;
-
-    var n = prompt("What is your name: ","John Joe");
-
-    alert(c1 + " " + d1 + " " + e1 + " " + n);
-
+    function doThis() {
+        document.getElementById('d1').style.visibility = "hidden";
+        alert('z is ' + z);
+    }
+    setTimeout(doThis, 10000);
 </script>
 
 </body>
