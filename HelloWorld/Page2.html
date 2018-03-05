@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    Buttons and Events <br />
+
+    <script>
+        // Waits until all HTML elements have loaded
+        window.onload = function () {
+
+            // Creates JS variables to handle HTML elements
+            var btn1 = document.getElementById('btn1');
+            var txt1 = document.getElementById('txt1');
+
+            // IE9+, Chrome, Firefox
+            btn1.addEventListener("click", showText);
+            // files apart
+            btn1.addEventListener("click", function2);
+
+            // The bad way to handle events. Only 2nd one is executed
+            /*
+            btn1.onclick = showText;
+            btn1.onclick = function2;
+            */
+            function showText() {
+                alert(txt1.value);
+            }
+
+            function function2() {
+                alert("I am function 2");
+            }
+
+        }
+    </script>
+
+    <input type="text" id="txt1" value="" /><br />
+    <input type="button" id="btn1" value="Button 1" /> <br />
+</body>
+</html>
