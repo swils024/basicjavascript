@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Untitled Page</title>
+</head>
+<body>
+<script>
+
+
+
+
+
+if (!TC) {var TC={};}  // instantiate the TC namespace if it doesn't already exist
+TC.Functions= {
+
+            addTwo:function (a,b)
+            {     return a+b;         }            ,
+            multiTwo:function (a,b)
+            {     return a*b           }            ,
+             divTwo:function (a,b)
+            {     return a/b            }            ,
+            subTwo:function (a,b)
+            {     return a-b            }            ,
+             concatTwo:function (a,b)
+            {     return a+''+ b       }
+      };
+      
+  alert(TC.Functions.addTwo(10,10));  
+  
+  TC.Functions.addThree =function(a,b,c)
+                                   {return a+b+c;};  
+                                   
+ TC.FastFunctions= {
+
+            addTwo:function (a,b)
+            {     return (a+b);         }            ,
+            multiTwo:function (a,b)
+            {     return a*b           }            ,
+             divTwo:function (a,b)
+            {     return a/b            }            ,
+            subTwo:function (a,b)
+            {     return a-b            }            ,
+             concatTwo:function (a,b)
+            {     return a+''+ b       }
+      };                              
+     
+    
+   
+   
+      
+</script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <script>
+
+
+        function Car(a) {
+            this.Colour = a;
+            this.Reg = '';
+            this.Speed = 0.0;
+            this.SlowDown = function (x) { this.Speed -= (x || 10);}
+        }
+        var C = new Car('Red');
+        var D = new Car('Blue');
+        D.Height = 42;
+        C.Seats = 'Yellow';
+        Car.prototype.Price = 10000;
+        Car.prototype.SpeedUp = function (x) {
+            var xx = x || 10;
+            if (isNumeric(xx)) {
+                this.Speed +=  parseFloat(xx);
+            }
+        }
+        Car.BootSize = 999; //bad
+        Car.prototype.BonnetSize = 999; //good
+
+        C.SpeedUp();
+        C.SpeedUp();
+        C.SpeedUp(null);
+        C.SlowDown(33)
+        C.BonnetSize++;
+        C.BootSize++;
+        C.SlowDown();
+        C.SlowDown();
+        
+        var zzz = 11111;
+        function isNumeric(n) {
+            return !isNaN(parseFloat(n)) && isFinite(n); //isFinite fails quoted fractions 
+        }
+    </script>
+</body>
+</html>

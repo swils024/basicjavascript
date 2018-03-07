@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Array elements</title>
+</head>
+<body>
+
+<script type="text/javascript" language="javascript">
+
+function object(o)
+{
+   function F()   {}
+   F.prototype = o;
+   return new F();
+}
+function out(s)
+{
+   ss = s || '';
+   document.write(ss + "<br/>");
+   if ((ss.length < 1) )
+   document.write("<br/>");
+
+}
+
+var arr = ['e', 'l', 'g'];
+
+
+out(Object.prototype.toString.call(arr));
+
+out(Object.prototype.toString.call(arr) === "[object Array]");
+//
+
+out(Object.prototype.toString.call('hello'));
+out(Object.prototype.toString.call(64));
+out(Object.prototype.toString.call(true));
+out(Object.prototype.toString.call(new Date()));
+</script>
+
+
+
+
+
+</body>
+</html>

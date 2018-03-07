@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Untitled Page</title>
+</head>
+<body>
+
+    <script type="text/ecmascript" language="javascript">
+//Namespace =================================================================    
+if (typeof MYCO == "undefined") var MYCO = {};
+if (typeof MYCO.Reflection == "undefined") MYCO.Reflection = {}; 
+//========== Reflection Reader ==============================================
+MYCO.Reflection.GetMembers = function(obj){
+    var memberArray = [];
+    for (var s in obj)
+    {
+        memberArray[memberArray.length] = typeof(obj[s])  
+        memberArray[memberArray.length] = s;  //inserted at the NEW length
+    } 
+    return memberArray;
+}; 
+//========== End of Reflection Reader ======================================
+
+//========== Test Reflection ===============================================    
+// Define a Person Object
+MYCO.Person = function(){
+this.FirstName = "";
+this.LastName = "";
+this.TTestFunction = function (s) { return s + "This is a Test Function"; };
+};
+MYCO.Person.prototype.TestFunction = function(s){return s + "This is a Test Function";};
+
+// Define an instance of the Person object
+MYCO.p = new MYCO.Person();
+MYCO.p.FirstName = "Michael";
+MYCO.p.LastName = "Mouse";
+
+
+MYCO.TestReflection = function(anyObject)
+{
+    var props = MYCO.Reflection.GetMembers(anyObject);
+    var resString="";
+    for (var i=0;i<props.length;i+=2)
+    {
+    resString += ('\n' + props[i] + " : " + props[i+1] + " = " + String(anyObject[String(props[i+1])]));
+    }
+    alert(resString);
+}
+
+MYCO.TestReflection(MYCO.p);
+
+    </script>
+
+   
+
+</body>
+</html>

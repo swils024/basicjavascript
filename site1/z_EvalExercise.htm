@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Untitled Page</title>
+</head>
+<body>
+    <input id="Text1" type="text" /><br />
+    <input id="Button1" type="button" value="button" onclick="Button1_onclick()" /><br />
+    <input id="Text2" type="text" /><br />
+    <script>
+    
+function Button1_onclick() 
+{
+    var a,b;
+    a = document.getElementById('Text1').value;
+    b=eval(a);
+    document.getElementById('Text2').value=b;
+}
+
+    </script>
+</body>
+</html>

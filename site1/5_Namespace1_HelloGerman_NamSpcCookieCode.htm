@@ -1,0 +1,131 @@
+<html>
+<head>
+<script>
+if(!document.TC) var TC = {};
+TC = {
+    Germany: {
+        x: 49,
+        sayHello: function () { x++;   return "Guten Tag von dem NamenPlatz " + x; },
+        y: 12
+    },
+    Holland: {
+        x: 22,
+        sayHello: function () { x++; return "Hey Holland " + x; },
+        y: 33
+    }
+
+};
+
+    TC.France = {
+        x: 33,
+        sayHello: function () { this.x++;    return "Bon Jour " + this.x; },
+        y: 12
+    }
+    //=============================================
+    //adding more to the TC library!
+    TC.Cookie = {
+
+        setCookie: function (cookieName, value, expiredays) {
+            var exdate = new Date();
+            exdate.setDate(exdate.getDate() + expiredays); //modify the day value of the date
+            document.cookie = cookieName + "=" + escape(value) + "; expires=" + exdate.toUTCString() + ";";
+        },
+        getCookie: function (cookieName) {
+            var c_start, c_end, res = "";
+            c_start = document.cookie.indexOf(cookieName + "=");
+            if (c_start != -1) {
+                c_start = c_start + cookieName.length + 1;
+                c_end = document.cookie.indexOf(";", c_start);
+                if (c_end == -1) {
+                    c_end = document.cookie.length;
+                }
+                res = unescape(document.cookie.substring(c_start, c_end));
+            }
+            return res;
+        },
+        saveCookie: function () {
+            var s = document.getElementById("inText").value;
+            this.setCookie("Your Name", s, 14);
+            alert(document.cookie);
+        },
+
+        readCookie: function () {
+            //var whichCookie = document.getElementById("inText").value;
+            var t = this.getCookie("Your Name");
+            document.getElementById("outText").value = t;
+        }
+    }
+</script>
+</head>
+<body>
+    Namespacing Javascript<br />
+    <br />
+    <script type="text/javascript">
+
+            //Dodgy code here.  Do you know why?
+            var x =0;
+            function sayHello(){
+                x++;
+                return "Hello" + x;
+            }
+
+            var x =10;
+            function sayHello(){
+                x+=99;
+                return "Dobraden! " + x;
+            }
+            var FR = TC.France;
+            var short = TC.Cookie;  //namespace shortcut if you like...
+            //==================================
+</script>
+
+    <input type="button" value="Call sayHello" 
+            onclick="javascript: document.getElementById('inText').value=sayHello()" />
+    <input type="text" id="inText" style="width: 200px" />
+    <br />
+    <input type="button" value="Call TC.France.sayHello" 
+            onclick="javascript: document.getElementById('inText').value=FR.sayHello()" />
+    <br />
+    <br />
+    <br />
+    <input type="button" value="Type your name above... and click here" 
+            onclick="short.saveCookie()" />
+            <br />
+    <input type="button" value="Click to retrieve name from cookie" 
+            onclick="TC.Cookie.readCookie()" />
+    <input type="text" id="outText" />
+</body>
+<script>
+
+    //====================================================================================
+    // Modded by Tony Cox - John Resig's Cross-Browser multi-event attach/detach:        =
+    //====================================================================================
+    function addEvent(obj, type, fn, ZeroOrOmitToStopBubbling) {                        //
+        if (!ZeroOrOmitToStopBubbling) { addEvent(obj, type, stopBubbles, 1); }         //
+        if (obj.attachEvent) {                                                          //
+            obj['e' + type + fn] = fn;                                                  //
+            obj[type + fn] = function () { obj['e' + type + fn](window.event); }        //
+            obj.attachEvent('on' + type, obj[type + fn]);                               //
+        }                                                                               //
+        else
+            obj.addEventListener(type, fn, false); //false=>fire event during bubbling, not capturing.
+    }                                                                                   //
+    function removeEvent(obj, type, fn) {                                               //
+        if (obj.detachEvent) {                                                          //
+            obj.detachEvent('on' + type, obj[type + fn]);                               //
+            obj[type + fn] = null;                                                      //
+        } else                                                                          //
+            obj.removeEventListener(type, fn, false);                                   //
+    }                                                                                   //
+    function stopBubbles(e) {                                                           //
+        if (!e) var e = window.event;  //IE                                             //
+        e.cancelBubble = true;          //IE                                            //
+        if (e.stopPropagation) e.stopPropagation(); //W3C                               //
+    }                                                                                   //
+    //====================================================================================
+    // Usage eg:  addEvent( document.getElementById('foo'), 'click', someFunction, 1 );
+    //====================================================================================
+    //====================================================================================
+
+</script>
+</html>

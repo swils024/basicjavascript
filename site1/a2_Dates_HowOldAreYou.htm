@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Array elements</title>
+</head>
+<body>
+<script src="moment.js"></script>
+<h1 id='thing' style='color:#ffffff'>Hello there</h1>
+
+
+
+<h1 id='otherthing' style='color:#ffffff'>Another Div</h1>
+
+
+
+<script>
+
+function getAge(dateString)  // DD/MM/YYYY
+{
+    var now = new Date();    // Today's date and time
+    var today = new Date(now.getFullYear(),now.getMonth(),now.getDate());
+
+    var yearNow = now.getFullYear();
+    var monthNow = now.getMonth()+1;  //months run 0 to 11
+    var dateNow = now.getDate();
+
+    var dob = new Date(dateString.substring(6,10),//chars 6,7,8,9
+                                Number(dateString.substring(3,5))-1,//chars 3,4
+                                dateString.substring(0,2)//chars 0,1
+                                );
+
+    var yearDob = dob.getFullYear();//watch this one! Is is y2k compliant? ... in 2010?...
+    var monthDob = dob.getMonth()+1;
+    var dateDob = dob.getDate();
+
+
+
+    var yearAge,monthAge,dateAge;
+    yearAge = yearNow - yearDob;       // 2018 - 2017
+
+    if (monthNow >= monthDob){
+        monthAge = monthNow - monthDob;}
+    else{
+        yearAge--;                     // yearAge = 0
+        monthAge = 12 + monthNow -monthDob;} // monthAge = 3
+
+    if (dateNow >= dateDob) {
+        dateAge = dateNow - dateDob;
+    }
+    else {
+        monthAge--;                     // monthAge = 2
+        dateAge = 31 + dateNow - dateDob;
+    }
+     if (monthAge < 0) {
+        monthAge = 11;
+        yearAge--; 
+        }
+    
+
+    return yearAge + ' ye      ars ' + monthAge + ' months ' + dateAge + ' days';
+}
+
+    document.write(getAge("25/12/2000") + '<BR>')
+
+
+
+
+
+
+
+    var nowIncTime = new Date(); // valueOf or getTime in milisecs
+    var nowDateNoTime = new Date(
+        nowIncTime.getFullYear(),
+        nowIncTime.getMonth(),
+        nowIncTime.getDate());
+
+    var nowMillisec = nowDateNoTime.valueOf();
+    var xmasMillisec = new Date(2017, 11, 25).valueOf();
+    var diffMillisec = nowMillisec - xmasMillisec;
+    var diffDays = diffMillisec / 1000 / 60 / 60 / 24;
+    var diffYears = diffDays / 365.25;
+
+    var momentDiff = moment.diff('2000-12-25', 'years');
+    var beautful = moment().format('MMMM Do YYYY, h:mm:ss a');
+
+</script>
+
+
+</body>
+</html>

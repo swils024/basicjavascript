@@ -1,0 +1,31 @@
+<html>
+<head>
+    <title>HTTP Request</title>
+    <script type="text/javascript" src = "ajax1_http-request.js"></script>
+    <script src="jquery-1.8.1-vsdoc.js" type="text/javascript"></script>
+    <script src="jquery-1.8.1.min.js" type="text/javascript"></script>
+</head>
+<body style="background-image: url('imagineBack.jpg')">
+  <input type="button" value="Make  Request 1" onclick="make_request(1)" />
+  <input type="button" value="Make  Request 2" onclick="make_request(2)" />
+  <input type="button" value="Make  Request 3" onclick="make_request(3)" />
+  <input type="button" value="Make  Request 4" onclick="make_request(4)" id="b44" /> <!-- Unobtrusive-->
+
+  <input type="button" value="Clear Div" onclick="document.getElementById('myDiv').innerHTML='' " />
+  <br />
+  <br />
+  <div id="myDiv" style="background-color: Yellow;">
+  </div>
+
+  <script type="text/javascript">
+
+    $("#b4").click(function () {
+        $.ajax("DataService.asmx/CustCity?whatCity=London&tableOrJSON=1").done(function (zzz) {
+        $("#myDiv").html(zzz.documentElement.childNodes[0].data);
+      });
+    })
+
+  </script>
+</body>
+
+</html>

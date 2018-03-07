@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Untitled Page</title>
+</head>
+<body>
+<script>
+
+alert("Hello");
+function addTwoNums(x,y)
+{
+    alert("number of arguments: " + arguments.length);
+    var a = arguments[3];
+    var b = arguments[4];
+    return a+b;
+}
+
+function addThemAll()
+{
+while(--arguments.length)
+    {
+    arguments[0] += arguments[arguments.length];
+    }
+    return arguments[0];
+}
+
+function addThemAll2() {
+    var i, tot=0;
+    for (i = 0; i < arguments.length; i++) {
+        tot += arguments[i];
+    }
+    return tot;
+}
+
+
+alert(addThemAll2(2, 4, 6, 8, 10));
+</script>
+</body>
+</html>

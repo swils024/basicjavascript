@@ -1,0 +1,662 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-US" xml:lang="en-US" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>HTML DOM Style object</title>
+<style>
+    body
+    {
+        font-family: verdana;
+        font-size: 10pt;
+        background-color: #ffffff;
+    }
+    a:link
+    {
+        font-family: verdana;
+        text-decoration: none;
+        color: Black;
+    }
+    .tdOdd
+    {
+        background-color: #ffffcc;
+    }
+    .tdEven
+    {
+        background-color: #ffccff;
+    }
+    .tdHover
+    {
+        background-color: #99ff99;
+    }
+</style>
+ </head>
+<body>
+
+
+
+
+<h1>HTML DOM <span class="color_h1">Style</span> Object</h1>
+    <h2><a name="background">Background properties</a></h2>
+<p><b>W3C:</b> W3C Standard.</p>
+
+<table  cellspacing="3" cellpadding="3" border="0" >
+  <tr>
+    <th  align="left">Property</th>
+    <th  align="left">Description</th>
+    <th  align="left">W3C</th>
+  </tr>
+  <tr>
+    <td><a href="prop_style_background.asp">background</a></td>
+    <td>Sets all background properties in one</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_backgroundattachment.asp">backgroundAttachment</a></td>
+    <td>Sets whether a background-image is fixed or scrolls with the page</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_backgroundcolor.asp">backgroundColor</a></td>
+    <td>Sets the background-color of an element</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_backgroundimage.asp">backgroundImage</a></td>
+    <td>Sets the background-image of an element</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_backgroundposition.asp">backgroundPosition</a></td>
+    <td>Sets the starting position of a background-image</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_backgroundpositionx.asp">backgroundPositionX</a></td>
+    <td>Sets the x-coordinates of the backgroundPosition property</td>
+    <td>No</td>
+  </tr>
+  <tr>
+    <td>backgroundPositionY</a></td>
+    <td>Sets the y-coordinates of the backgroundPosition property</td>
+    <td>No</td>
+  </tr>
+  <tr>
+    <td>backgroundRepeat</a></td>
+    <td>Sets if/how a background-image will be repeated</td>
+    <td>Yes</td>
+  </tr>
+</table>
+
+<h2><a name="border">Border and Margin properties</a></h2>
+    <table cellspacing="3" cellpadding="3" border="0">
+        <tr>
+    <th  align="left">Property</th>
+    <th align="left">Description</th>
+    <th  align="left">W3C</th>
+  </tr>
+  <tr>
+    <td>< border</td>
+    <td>Sets all properties for the four borders in one</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td>borderBottom</td>
+    <td>Sets all properties for the bottom border in one</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_borderbottomcolor.asp">borderBottomColor</a></td>
+    <td>Sets the color of the bottom border</td>
+    <td>Yes</td>
+  </tr>
+	<tr>
+    <td><a href="prop_style_borderbottomstyle.asp">borderBottomStyle</a></td>
+    <td>Sets the style of the bottom border</td>
+    <td>Yes</td>
+  </tr>
+	<tr>
+    <td><a href="prop_style_borderbottomwidth.asp">borderBottomWidth</a></td>
+    <td>Sets the width of the bottom border</td>
+    <td>Yes</td>
+  </tr>
+	<tr>
+    <td><a href="prop_style_bordercolor.asp">borderColor</a></td>
+    <td>Sets the color of all four borders (can have up to four 
+	colors)</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_borderleft.asp">borderLeft</a></td>
+    <td>Sets all properties for the left border in one</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_borderleftcolor.asp">borderLeftColor</a></td>
+    <td>Sets the color of the left border</td>
+    <td>Yes</td>
+  </tr>
+	<tr>
+    <td><a href="prop_style_borderleftstyle.asp">borderLeftStyle</a></td>
+    <td>Sets the style of the left border</td>
+    <td>Yes</td>
+  </tr>
+	<tr>
+    <td><a href="prop_style_borderleftwidth.asp">borderLeftWidth</a></td>
+    <td>Sets the width of the left border</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_borderright.asp">borderRight</a></td>
+    <td>Sets all properties for the right border in one</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_borderrightcolor.asp">borderRightColor</a></td>
+    <td>Sets the color of the right border</td>
+    <td>Yes</td>
+  </tr>
+	<tr>
+    <td><a href="prop_style_borderrightstyle.asp">borderRightStyle</a></td>
+    <td>Sets the style of the right border</td>
+    <td>Yes</td>
+  </tr>
+	<tr>
+    <td><a href="prop_style_borderrightwidth.asp">borderRightWidth</a></td>
+    <td>Sets the width of the right border</td>
+    <td>Yes</td>
+  </tr>
+	<tr>
+    <td><a href="prop_style_borderstyle.asp">borderStyle</a></td>
+    <td>Sets the style of all four borders (can have up to four 
+	styles)</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_bordertop.asp">borderTop</a></td>
+    <td>Sets all properties for the top border in one</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_bordertopcolor.asp">borderTopColor</a></td>
+    <td>Sets the color of the top border</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_bordertopstyle.asp">borderTopStyle</a></td>
+    <td>Sets the style of the top border</td>
+    <td>Yes</td>
+  </tr>
+	<tr>
+    <td><a href="prop_style_bordertopwidth.asp">borderTopWidth</a></td>
+    <td>Sets the width of the top border</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_borderwidth.asp">borderWidth</a></td>
+    <td>Sets the width of all four borders (can have up to four 
+	widths)</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_margin.asp">margin</a></td>
+    <td>Sets the margins of an element (can have up to four values)</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_marginbottom.asp">marginBottom</a></td>
+    <td>Sets the bottom margin of an element</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_marginleft.asp">marginLeft</a></td>
+    <td>Sets the left margin of an element</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_marginright.asp">marginRight</a></td>
+    <td>Sets the right margin of an element</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_margintop.asp">marginTop</a></td>
+    <td>Sets the top margin of an element</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_outline.asp">outline</a></td>
+    <td>Sets all outline properties in one</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_outlinecolor.asp">outlineColor</a></td>
+    <td>Sets the color of the outline around a element</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_outlinestyle.asp">outlineStyle</a></td>
+    <td>Sets the style of the outline around an element</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_outlinewidth.asp">outlineWidth</a></td>
+    <td>Sets the width of the outline around an element</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_padding.asp">padding</a></td>
+    <td>Sets the padding of an element (can have up to four values)</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_paddingbottom.asp">paddingBottom</a></td>
+    <td>Sets the bottom padding of an element</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_paddingleft.asp">paddingLeft</a></td>
+    <td>Sets the left padding of an element</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_paddingright.asp">paddingRight</a></td>
+    <td>Sets the right padding of an element</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_paddingtop.asp">paddingTop</a></td>
+    <td>Sets the top padding of an element</td>
+    <td>Yes</td>
+  </tr>
+</table>
+
+<h2><a name="layout">Layout properties</a></h2>
+    <table cellspacing="3" cellpadding="3" border="0">
+        <tr>
+    <th width="30%" align="left">Property</th>
+    <th width="63%" align="left">Description</th>
+    <th width="7%" align="left">W3C</th>
+  </tr>
+  <tr>
+    <td><a href="prop_style_clear.asp">clear</a></td>
+    <td>Sets on which sides of an element other floating elements are not allowed</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_clip.asp">clip</a></td>
+    <td>Sets the shape of an element</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td>content</td>
+    <td>Sets meta-information</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td>counterIncrement</td>
+    <td>Sets a list of counter names, followed by an integer. The integer indicates by how much the counter is incremented for every occurrence of the element. The default is 1</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td>counterReset</td>
+    <td>Sets a list of counter names, followed by an integer. The integer gives the value that the counter is set to on each occurrence of the element. The default is 0 </td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_cssfloat.asp">cssFloat</a></td>
+    <td>Sets where an image or a text will appear (float) in another element</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_cursor.asp">cursor</a></td>
+    <td>Sets the type of cursor to be displayed</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_direction.asp">direction</a></td>
+    <td>Sets the text direction of an element</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_display.asp">display</a></td>
+    <td>Sets how an element will be displayed</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_height.asp">height</a></td>
+    <td>Sets the height of an element</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td>markerOffset</td>
+    <td>Sets the distance between the nearest border edges of a marker box and its principal box</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td>marks</td>
+    <td>Sets whether cross marks or crop marks should be rendered just outside the page box edge </td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_maxheight.asp">maxHeight</a></td>
+    <td>Sets the maximum height of an element</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_maxwidth.asp">maxWidth</a></td>
+    <td>Sets the maximum width of an element</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_minheight.asp">minHeight</a></td>
+    <td>Sets the minimum height of an element</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_minwidth.asp">minWidth</a></td>
+    <td>Sets the minimum width of an element</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_overflow.asp">overflow</a></td>
+    <td>Specifies what to do with content that does not fit in an element box</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_verticalalign.asp">verticalAlign</a></td>
+    <td>Sets the vertical alignment of content in an element</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_visibility.asp">visibility</a></td>
+    <td>Sets whether or not an element should be visible</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_width.asp">width</a></td>
+    <td>Sets the width of an element</td>
+    <td>Yes</td>
+  </tr>
+  </table>
+
+<h2><a name="list">List properties</a></h2>
+    <table cellspacing="3" cellpadding="3" border="0">
+        <tr>
+    <th width="30%" align="left">Property</th>
+    <th width="63%" align="left">Description</th>
+    <th width="7%" align="left">W3C</th>
+  </tr>
+  <tr>
+    <td><a href="prop_style_liststyle.asp">listStyle</a></td>
+    <td>Sets all the properties for a list in one</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_liststyleimage.asp">listStyleImage</a></td>
+    <td>Sets an image as the list-item marker</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_liststyleposition.asp">listStylePosition</a></td>
+    <td>Positions the list-item marker</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_liststyletype.asp">listStyleType</a></td>
+    <td>Sets the list-item marker type</td>
+    <td>Yes</td>
+  </tr>
+  </table>
+
+<h2><a name="positioning">Positioning properties</a></h2>
+    <table cellspacing="3" cellpadding="3" border="0">
+        <tr>
+    <th width="30%" align="left">Property</th>
+    <th width="63%" align="left">Description</th>
+    <th width="7%" align="left">W3C</th>
+  </tr>
+  <tr>
+    <td><a href="prop_style_bottom.asp">bottom</a></td>
+    <td>Sets how far the bottom edge of an element is above/below the bottom edge of the parent element</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_left.asp">left</a></td>
+    <td>Sets how far the left edge of an element is to the right/left of the left edge of the parent element</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_position.asp">position</a></td>
+    <td>Places an element in a static, relative, absolute or fixed position</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_right.asp">right</a></td>
+    <td>Sets how far the right edge of an element is to the left/right of the right edge of the parent element</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_top.asp">top</a></td>
+    <td>Sets how far the top edge of an element is above/below the top edge of the parent element</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_zindex.asp">zIndex</a></td>
+    <td>Sets the stack order of an element</td>
+    <td>Yes</td>
+  </tr>
+</table>
+
+<h2><a name="printing">Printing properties</a></h2>
+    <table cellspacing="3" cellpadding="3" border="0">
+        <tr>
+    <th width="30%" align="left">Property</th>
+    <th width="63%" align="left">Description</th>
+    <th width="7%" align="left">W3C</th>
+  </tr>
+  <tr>
+    <td>orphans</td>
+    <td>Sets the minimum number of lines for a paragraph that must be left at the bottom of a page</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td>page</td>
+    <td>Sets a page type to use when displaying an element</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_pagebreakafter.asp">pageBreakAfter</a></td>
+    <td>Sets the page-breaking behavior after an element</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_pagebreakbefore.asp">pageBreakBefore</a></td>
+    <td>Sets the page-breaking behavior before an element</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_pagebreakinside.asp">pageBreakInside</a></td>
+    <td>Sets the page-breaking behavior inside an element</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td>size</td>
+    <td>Sets the orientation and size of a page</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td>widows</td>
+    <td>Sets the minimum number of lines for a paragraph that must be left at the
+      top of a page</td>
+    <td>Yes</td>
+  </tr>
+  </table>
+
+<h2><a name="table">Table properties</a></h2>
+    <table cellspacing="3" cellpadding="3" border="0">
+        <tr>
+    <th width="30%" align="left">Property</th>
+    <th width="63%" align="left">Description</th>
+    <th width="7%" align="left">W3C</th>
+  </tr>
+  <tr>
+    <td><a href="prop_style_bordercollapse.asp">borderCollapse</a></td>
+    <td>Sets whether the table border are collapsed into a single 
+	border or detached as in standard HTML</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_borderspacing.asp">borderSpacing</a></td>
+    <td>Sets the distance that separates cell borders</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_captionside.asp">captionSide</a></td>
+    <td>Sets the position of the table caption</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_emptycells.asp">emptyCells</a></td>
+    <td>Sets whether or not to show empty cells in a table</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_tablelayout.asp">tableLayout</a></td>
+    <td>Sets the algorithm used to display the table cells, rows, 
+	and columns</td>
+    <td>Yes</td>
+  </tr>
+</table>
+
+<h2><a name="text">Text properties</a></h2>
+<table class="reference" cellspacing="0" cellpadding="0" border="1" width="100%">
+  <tr>
+    <th width="30%" align="left">Property</th>
+    <th width="63%" align="left">Description</th>
+    <th width="7%" align="left">W3C</th>
+  </tr>
+  <tr>
+    <td><a href="prop_style_color.asp">color</a></td>
+    <td>Sets the color of the text</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_font.asp">font</a></td>
+    <td>Sets all font properties in one</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_fontfamily.asp">fontFamily</a></td>
+    <td>Sets the font of an element</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_fontsize.asp">fontSize</a></td>
+    <td>Sets the font-size of an element</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_fontsizeadjust.asp">fontSizeAdjust</a></td>
+    <td>Sets/adjusts the size of a text</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_fontstretch.asp">fontStretch</a></td>
+    <td>Sets how to condense or stretch a font</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_fontstyle.asp">fontStyle</a></td>
+    <td>Sets the font-style of an element</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_fontvariant.asp">fontVariant</a></td>
+    <td>Displays text in a small-caps font</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_fontweight.asp">fontWeight</a></td>
+    <td>Sets the boldness of the font</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_letterspacing.asp">letterSpacing</a></td>
+    <td>Sets the space between characters</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_lineheight.asp">lineHeight</a></td>
+    <td>Sets the distance between lines</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td>quotes</td>
+    <td>Sets which quotation marks to use in a text</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_textalign.asp">textAlign</a></td>
+    <td>Aligns the text</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_textdecoration.asp">textDecoration</a></td>
+    <td>Sets the decoration of a text</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_textindent.asp">textIndent</a></td>
+    <td>Indents the first line of text</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td>textShadow</td>
+    <td>Sets the shadow effect of a text</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_texttransform.asp">textTransform</a></td>
+    <td>Sets capitalization effect on a text</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td>unicodeBidi</td>
+    <td>&nbsp;</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_whitespace.asp">whiteSpace</a></td>
+    <td>Sets how to handle line-breaks and white-space in a text</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_wordspacing.asp">wordSpacing</a></td>
+    <td>Sets the space between words in a text</td>
+    <td>Yes</td>
+  </tr>
+  </table>
+
+
+
+
+
+
+
+<script>
+	var tables = document.getElementsByTagName('table');
+	for(var t=0;t<tables.length;t++)
+	{
+	    var rows = tables[t].getElementsByTagName('tr');// getElementsByTag
+        for(var pos = 0; pos < rows.length; pos++)
+        {           
+            if(pos % 2 == 0) { rows[pos].className = "tdEven"; }
+            else { rows[pos].className = "tdOdd"; } 
+            //now set the hovering... 
+            rows[pos].onmouseover=function(){this.oldClassName = this.className;  this.className='tdHover';}
+            rows[pos].onmouseout=function(){this.className=this.oldClassName;}
+        } 
+    } 
+
+</script>
+
+</body>
+</html>

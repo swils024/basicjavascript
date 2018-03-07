@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Untitled Page</title>
+</head>
+<body>
+
+   <script>
+   
+
+    if ( typeof MY_CO=="undefined" || !MY_CO ) { var MY_CO={}; }
+    
+    MY_CO.DEV=function()
+    {
+    return{    
+        aa:function() 
+            {
+            this.x = "apple"//x;
+            this.y = 12;
+            this.z = 99;
+            q= 44;
+            } 
+
+        };
+    }(); //END MY_CO.stuff
+
+        var a = new MY_CO.DEV.aa();   //new object from MYCO's DEV department! 
+        var b = new MY_CO.DEV.aa();
+        b.x="orange";
+        alert(a.x);
+        alert(b.x);
+
+   </script>
+
+   
+
+</body>
+</html>

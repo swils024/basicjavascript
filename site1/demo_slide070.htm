@@ -1,0 +1,139 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Untitled Page</title>
+</head>
+<body>
+	<div id="d1" style="width:650px;border:1px solid red"></div>
+    <script type="text/javascript" language="javascript">
+    function aalert(s) {
+    	document.getElementById('d1').innerHTML+= "<br/><br/> " + s.replace(new RegExp("\n","g")," - ");//note RegExp to replace multis
+    }
+    	
+
+//====== Simple Inheritance - Don't expect the secret link! ========================    
+    function bus()
+    {
+        this.make="busLeyland";
+        this.colour="busPink";
+    }; 
+// var bus = {make:"Leyland", colour: "Pink"};//not here! works only with the alternative inheritance, below.
+    var b = new bus();
+    var c = new bus();
+
+    bus.wheels="bus4";//new prop for bus - not inherited by b and c.
+
+    //these new [prototype] props will be available to the already created b and c:
+	bus.prototype.doors = "busP2"; //new prop for bus - inherited
+    bus.prototype.getWheels=function(){return this.tyres;};
+    bus.prototype.tyres="busP15"
+  
+    c.colour = "cblack";
+    delete c["colour"];  //c's colour is now lost, and the inherited colour cannot be seen  
+
+    c.tyres=5
+    bus.colour="busSteel";// this new value will not be 'inherited' by b (or c)
+    
+    var res = "";
+     res =  " bus.colour: " + bus.colour;  
+     res += "\n bus.wheels: " + bus.wheels ; 
+     res += "\n bus.doors: " + bus.doors ; 
+     res += "\n bus.tyres: " +  bus.tyres;  
+     //res += "\n bus.getWheels(): " + bus.getWheels();//causes undefined crash
+    aalert (res);
+    res = " b.colour: " + b.colour + 
+            "\n b.wheels: " + b.wheels + 
+			"\n b.doors: " + b.doors + 
+            "\n b.tyres: " +  b.tyres + 
+            "\n b.getWheels(): " + b.getWheels();
+    aalert (res);
+    res = " c.colour: " + c.colour + 
+            "\n c.wheels: " + c.wheels + 
+            "\n c.doors: " + c.doors + 
+            "\n c.tyres: " +  c.tyres + 
+            "\n c.getWheels(): " + c.getWheels();
+    aalert (res);
+//  //=================================================================================
+    //======= Crockford's Inheritance ++  - Links and all ==========================================
+    //=================================================================================
+    //this fncn will be explained later    
+	function object(o) {
+	    function F() {};
+	    F.prototype = o;
+	    F.prototype.base = o;//extra line //
+	    return new F();
+    }
+    
+    var car = {
+    make:"no make",
+    model:"no model",
+    colour:"no real colour"
+    }; 
+    car.wheels=4;
+    car.getMake=function(){return "base method: " + this.make;};
+    car.getWheels=function(){return "base method reads added base prop:" + this.wheels;}
+
+    
+        var taxi =  object(car);//new car();//
+    //new props in sub-object:
+        taxi.seats=12; 
+    //new values & deleted prop in sub-object:
+        taxi.make="mBMW"; 
+        taxi.colour="mYellow";
+    //delete m.colour;    
+
+    //new methods in sub-object
+        taxi.speedUp=function(){return "sub-object method: speeding up!";    }
+        taxi.getMyAndParentsColours=function(){return this.colour + ' ' + this.base.colour;}
+    
+        aalert(taxi.getMyAndParentsColours());
+aalert("= = = = = = = = = = = =")
+    //car.prototype.passengers =5;//"prototype" is not allowed!
+    //m.prototype.passengers =5;//"prototype" is not allowed here either!
+        aalert(taxi.speedUp() + taxi.getMake() + taxi.getWheels());
+        res = "<br/>  m.make: " + taxi.make + 
+            "\n m.model: " + taxi.model + 
+            "\n m.colour: " + taxi.colour + 
+            "\n m.seats: " + taxi.seats  
+    aalert (res);
+   
+    //=====================================================================
+    //==== reflection =====================================================
+    //=====================================================================
+    
+//========== Reflection Reader ==============================================
+var GetMembers = function(obj){
+    var memberArray = [];
+    for (var s in obj)
+    { var i=0;
+        memberArray[memberArray.length] = typeof(obj[s])  
+        memberArray[memberArray.length] = s;  //inserted at the NEW length
+    } 
+    return memberArray;
+}; 
+ 
+
+var TestReflection = function(anyObject,objName)
+{
+    var props = GetMembers(anyObject);
+	var resString ="<br/> Reflection on: " + objName + '<br/>';
+    //var resString="";
+    for (var i=0;i<props.length;i+=2)
+    {
+    try{
+    	
+    resString += ('<br/>' + props[i] + " : " + props[i+1] + " = " + String(anyObject[String(props[i+1])]));
+        }catch(e){}
+    }
+    aalert(resString);
+}
+
+TestReflection(bus,"bus");
+TestReflection(b, "b");
+TestReflection(c ,"c");
+
+TestReflection(car,"car");
+        TestReflection(taxi,"taxi");
+    </script>
+</body>
+</html>

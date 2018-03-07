@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Array elements</title>
+</head>
+<body>
+
+<script type="text/javascript" language="javascript">
+    
+
+function out(s) 
+{
+    ss = s || '';
+    document.write(ss + "<br/>");
+    if ((ss.length<1) )
+        document.write("<br/>");
+}
+
+var arr = ['e','l','g'];
+
+arr[7] ='a';
+arr[arr.length]='the end';
+
+for(var i=0;i<arr.length;i++)
+{
+    out("Element " + i + " contains " + arr[i]); 
+   
+}
+out('');
+//arr.reverse();
+out("Concat with itself, then Reverse, then Join with - ")
+out(arr.concat(arr).reverse().join("-"));
+out();
+
+out("Original arr -----> " + arr.join("-"));
+
+arr.reverse();
+out("arr.reverse()  --> " + arr.join('-'));
+
+arr.splice(2,4);
+out("arr.splice(2,4) --> " + arr.join('-'));
+
+ arr.sort();
+out("arr.sort() ---------> " + arr.join('-'));
+</script>
+
+    
+
+</body>
+</html>

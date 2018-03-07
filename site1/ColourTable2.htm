@@ -1,0 +1,56 @@
+<HTML>
+<HEAD>
+<TITLE>Color Names</TITLE>
+
+<SCRIPT language=javaScript>
+
+   // var Colors = ["00", "11", "22", "33", "44", "55", "66", "77", "88", "99", "AA", "BB", "CC", "DD","EE", "FF"];
+    var Colors = ["00",  "33",  "66",  "99",  "CC",  "FF"];
+
+</SCRIPT>
+
+</HEAD>
+<BODY >
+
+<CENTER>
+<TABLE>
+
+<SCRIPT language=javaScript>
+
+    var pScreen = function (stringg) {
+        document.write(stringg);
+    }
+
+    doit(pScreen);
+
+    function doit(dw)
+    {
+        var lent = Colors.length; //6
+        for (iRed = 0; iRed < lent; iRed++)  //0
+        {
+            dw("<tr><td> Hello </td></tr>");
+            for (iGreen = 0; iGreen < lent; iGreen++)
+            {
+                dw("<tr>");
+                for (iBlue = 0; iBlue < lent; iBlue++)
+                {
+                    var thiscolor = Colors[iRed] + Colors[iGreen] + Colors[iBlue];
+                    if ((iGreen == 0) && (iBlue == 0)) { dw("<tr>"); }
+                    dw("<td bgcolor =#" + thiscolor + " onMouseOver=document.bgColor=\'" + thiscolor + "\' >");
+                        dw(iRed + " " + iGreen + " " + iBlue + "<br />");
+                        dw(thiscolor );
+                    dw("</td>");
+                }
+                dw("</tr>"); 
+            }
+        }
+    }//end doit
+
+
+</SCRIPT>
+
+</TABLE>
+</CENTER>
+
+</BODY>
+</HTML>

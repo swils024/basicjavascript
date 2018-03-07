@@ -1,0 +1,38 @@
+<html>
+<head><title>Simple Ajax Request</title>
+    <script src="tcutils.js"></script>
+    
+    
+<script>
+    var oAjax; 
+    function make_request()	// execute an HTTPRequest 
+    {	
+        TC.Utils.Timer.startTimer();
+	    //One-liner to obtain the XMLrequest:
+	    oAjax = (new XMLHttpRequest() || new ActiveXObject("Microsoft.XMLHTTP")); // cool eh? :-)
+	    oAjax.onreadystatechange = function(){show_results();	};		
+	    oAjax.open("GET", "J.txt", true); 	
+        oAjax.send(null);	
+    }
+    function show_results()
+    {
+      if(oAjax.readyState==4 && oAjax.status== 200)
+      {            
+
+            document.getElementById('myDiv').innerHTML ="The server sent us this:<br/><pre>" + oAjax.responseText + "</pre>";
+            alert(TC.Utils.Timer.scriptRunTime() + " seconds to get response.");
+            eval(oAjax.responseText); //executes JavaScript
+      } 
+    }
+    // Exercise for class:  Get categories into ddlist.  When selected, get appropriate products into 2nd ddlist
+    // Advanced: when 2nd list selected, get full product details for chosen product IN A NEW CALLBACK!
+    
+</script>
+</head>
+<body style="background-image:url('imagineBack.jpg')">
+    <input type = "button" value = "Make Ajax Request for executable code!" onclick = "make_request()"/><br />
+    <input type="button" value="Clear Div" onclick="document.getElementById('myDiv').innerHTML=''" />
+    <br/><br/><div id="myDiv" style="background-color:Yellow"></div>
+</body>
+
+</html>

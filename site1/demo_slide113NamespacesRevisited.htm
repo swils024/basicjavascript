@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Untitled Page</title>
+</head>
+<body>
+    <script type="text/ecmascript" language="javascript">
+        //Namespace =================================================================    
+        if (typeof MYCO == "undefined") var MYCO = {};
+        if (typeof MYCO.Reflection == "undefined") {
+            MYCO.Reflection = function () {
+                //Private Area of Reflection 'namespace' ================================
+                //========== Reflection Reader 
+                var GetMembers = function (obj) {
+                    var memberArray = [];
+                    for (var s in obj) {
+                        memberArray[memberArray.length] = typeof (obj[s])
+                        memberArray[memberArray.length] = s;  //inserted at the NEW length
+                    }
+                    return memberArray;
+                };
+                // Define a Person Object===============================================
+                var Person = function () {
+                    this.FirstName = "";
+                    this.LastName = "";
+                };
+                Person.prototype.TestFunction = function (s) { return s + "This is a Test Function"; };
+                //========== Test Reflection ===============================================    
+                var TestReflection = function () {
+                    var ao = arguments[0];
+                    var props = GetMembers(ao);
+
+                    var resString = "";
+                    for (var i = 0; i < props.length; i += 2) {
+                        resString += ('\n' + props[i] + " : " + props[i + 1] + " = " + String(ao[String(props[i + 1])]));
+                    }
+                    alert(resString);
+                }
+                //End of Private Area of Reflection=======================================
+                //Public Area:
+                return {
+                    TestReflection: TestReflection,
+                    Person: Person
+                };
+
+            } ();
+        } //end of if statement, End Of Namespace.  Now let's use it!
+
+        // Create an instance of the Person object
+        var p = new MYCO.Reflection.Person(); //yes, this is global, but that's not the point here!
+        p.FirstName = "Mickey";
+        p.LastName = "Mouse";
+
+        MYCO.Reflection.TestReflection(p); //this line is 
+
+    </script>
+</body>
+</html>

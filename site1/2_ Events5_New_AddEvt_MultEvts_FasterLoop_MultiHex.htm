@@ -1,0 +1,142 @@
+<html>
+<head>
+
+    <script></script>
+
+</head>
+<body>
+    Traditional Event Handling with Bubbling Displayed But Suppressed<br />
+    <div id="d1" style="float: left; font: Tahoma; font-size:8pt; width: 500px; height: auto; background-color: #ccccff; border: solid 1 #00FF00">
+    </div>
+    <table style="float: right; width: 30%; background-color: #00FFFF">
+        <tr>
+            <td>
+                Hello
+            </td>
+            <td>
+                Hello
+            </td>
+            <td>
+                Hello
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Hello
+            </td>
+            <td>
+                <a href="http://www.123.com">Hey <span id="ASpan" style="background-color:Aqua">Hello
+                    <img id="anImage" src="face.jpg" /></span></a>
+            </td>
+            <td>
+                Hello
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Hello
+            </td>
+            <td>
+                Hello
+            </td>
+            <td>
+                Hello
+            </td>
+        </tr>
+    </table>
+    <br />
+</body>
+
+<script>
+
+
+
+//=======================================================
+// John Resig's Modern Cross-Browser multi-event attach/detach functions:
+//=======================================================
+function addEvent( obj, type, fn ) {
+  if ( obj.attachEvent ) {
+    obj['e'+type+fn] = fn;
+    obj[type+fn] = function(){obj['e'+type+fn]( window.event );}
+    obj.attachEvent( 'on'+type, obj[type+fn] );
+  } else
+    obj.addEventListener( type, fn, false );//the false here means pick up the event during bubbling, not capturing.
+}
+
+function removeEvent( obj, type, fn ) {
+  if ( obj.detachEvent ) {
+    obj.detachEvent( 'on'+type, obj[type+fn] );
+    obj[type+fn] = null;
+  } else
+    obj.removeEventListener( type, fn, false );
+}
+//==========================================================
+// Usage eg:  addEvent( document.getElementById('foo'), 'click', someFunction );
+//==========================================================
+//Note: you will still have to manage bubbling from within the handler functions
+//==========================================================
+var firstOver=firstOut=true
+var x = document.getElementsByTagName('*');
+var ss="";
+
+//** note faster loop through the array: **
+var i=x.length;
+while (i--)
+//for (var i=0;i<x.length;i++) 
+{   
+    addEvent(x[i], 'mouseover', over )   //adding multiple handlers to an event...
+    addEvent(x[i], 'mouseover', over2 )
+    addEvent(x[i], 'mouseover', over3)
+    addEvent(x[i], 'mouseover', noBubblesPlease)
+    addEvent(x[i], 'mouseout', out)
+    addEvent(x[i], 'mouseout', noBubblesPlease) 
+    //ss+=(x[i].tagName)?x[i].tagName + ' ':' - ';
+}
+
+//snippet: colour all the table cells 
+var x = document.getElementsByTagName('td');
+for (var i=0;i<x.length;i++) 
+{   x[i].style.backgroundColor = hexColour() ; }
+//====================================
+function over(e) {
+    this.oldBorder =this.style.border;
+    this.style.border="thin solid #000099";
+}
+function over2(e) {
+    this.oldFill = this.style.backgroundColor;
+    this.style.backgroundColor='#ffffcc';
+}
+function over3(e) {
+    var s="" 
+    if (firstOver) {s +="<br/>"; firstOver=false;}
+    s +=  "Over " + this.nodeName + " - ";
+    document.getElementById("d1").innerHTML += s;
+    firstOut=true;    
+}
+
+function out(e) { //this restores the actions of the three "over" functions
+    this.style.border=this.oldBorder;
+    this.style.backgroundColor=this.oldFill;
+    var s="";
+    if (firstOut) {s +="<br/>"; firstOut=false;}
+    s += "Out " + this.nodeName + " - ";;
+    document.getElementById("d1").innerHTML += s
+    firstOver=true;
+}
+
+function noBubblesPlease(e) {
+    if (!e) var e = window.event;  //IE
+    e.cancelBubble = true;          //IE
+    if (e.stopPropagation) e.stopPropagation(); //W3C
+}
+
+function hexColour()
+{
+    var h=(Math.random()*0xFFFFFF+1<<0).toString(16); 
+    while(h.length<6) 
+        {h="0"+h;}
+        //return "#"+h; //return the random colour - comment out if you want vanilla!
+        return '#ffccff';
+ }
+ 
+</script>

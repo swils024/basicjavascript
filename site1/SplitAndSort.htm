@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body onload="checkCookieAndsearchForGoods">
+<script>
+
+
+
+    var s = "banana;eggs;water melon;grape;potato;orange;apple;carrot;lemon";
+    var arr = s.split(";");
+
+    arr[arr.length] = "beans";
+    arr[arr.length] = "lettuce";
+    arr.push("cabbage");
+
+    alert(arr[0]);
+    alert(arr.length);
+    alert(arr[arr.length - 1]);
+
+    arr.sort();
+    var s1 = arr.join(", ");
+    alert(s1);
+
+    arr.sort(revSort); //using the revSort function
+    s1 = arr.join(", ");
+    alert(s1);
+
+    function revSort(a, b) {
+        if (a > b) return -1;
+        if (a < b) return 1;
+        return 0;
+     }
+
+
+
+</script>
+   Search EBay <input id="Text1" type="text" style="width:350px" />  
+   <input id="Button1" type="button"
+       value="button" onclick="saveSearchInCookie"/>
+    <p>
+        &nbsp;</p>
+    <p>
+        <iframe src="http://www.bbc.co.uk" />
+
+        
+        </p>
+    <p>
+        &nbsp;</p>
+
+
+
+
+</body>
+</html>

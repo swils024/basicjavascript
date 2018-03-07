@@ -1,0 +1,97 @@
+<html>
+<head>
+</head>
+<body>
+
+    <script type="text/javascript">
+
+function setCookie(cookieName,value,expiredays)
+{
+    var exdate=new Date();
+    exdate.setDate(exdate.getDate()+ expiredays);//modify the day value of the date
+    
+    document.cookie= 
+                    cookieName + "=" +escape(value)+ "; expires="+exdate.toUTCString()+ ";";
+                    
+    document.cookie="xmaspressie=cat; expires=21 Nov 2012;";  //uncomment this to add an extra cookie value 
+}
+
+function getCookie(cookieName)
+{
+var  c_start , c_end,res="";
+    if (document.cookie){
+        c_start = document.cookie.indexOf(cookieName + "=");
+        if (c_start != -1){ 
+            c_start = c_start + cookieName.length+1 ;
+            c_end = document.cookie.indexOf(";",c_start);
+            if (c_end == -1) c_end = document.cookie.length
+            res =  unescape(document.cookie.substring(c_start,c_end));
+        } 
+    }
+    //else...
+    return res;
+}
+
+function saveToCookie2()
+{
+    var c = document.getElementById("inCookieName").value;
+    var s = document.getElementById("inText").value;
+    setCookie(c,s,14); 
+}
+	/*
+	The compare(a,b) function should return a number thus:
+	if a<b return negative value
+    if a>b return positive value	
+    if a==b return 0 (zero)
+    */
+	function myValueSortFunction(a,b)//this sorts the cookie array by the values, and case insensitive
+	{
+	    var aa, bb, res
+	    aa= a.split("=")[1].toLowerCase();
+	    bb = b.split("=")[1].toLowerCase();
+	    res=0;
+	    if (aa>bb) res=1;
+	    if (aa<bb) res=-1;
+	    return res
+	    //or
+	    // return (aa>bb) ? 1 : (aa<bb) ? -1 : 0; 
+	}
+	
+	function myRandSortFunction(a,b) { 
+        return (0.5 - Math.random()); 
+    } 
+	
+    function readFromCookie2()
+    {
+        if (document.cookie){
+            var cookieData =document.cookie// unescape(document.cookie);
+            var dataPairs= cookieData.split(";");
+            dataPairs.sort(myValueSortFunction);
+            var ele, res="";
+            res = "<table border=1>"
+            for (var i = 0; i < dataPairs.length; i++) {
+                ele = dataPairs[i].split("=");
+                res += "<tr><td>" + ele[0] + " </td><td> " + unescape(ele[1]) + "</td></tr>";
+            }
+            res += "</table>"
+	        document.getElementById("d1").innerHTML = res;
+	    }//end if
+	}
+
+    
+
+    </script>
+
+    Cookie Name:<input type="text" id="inCookieName" /><br />
+    Cookie Value:<input type="text" id="inText" /><br />
+    <input type="button" value="Click to Save to Cookie" onclick="saveToCookie2()" /><br />
+    <br />
+    <br />
+    <br />
+    <input type="button" value="Click to retrieve cookies/values" onclick="readFromCookie2()" />
+    <input type="text" id="outText" />
+    <div id="d1" style="background-color:#cccccc;width:450px">
+    </div>
+
+</body>
+</html>

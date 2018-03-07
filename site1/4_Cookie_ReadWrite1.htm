@@ -1,0 +1,69 @@
+<html>
+<head>
+
+
+<script type="text/javascript">
+
+    if (!navigator.cookieEnabled) 
+        {alert ('Oh dear! Your browser IE FF GC hasn\'t enabled Cookies!');}
+    alert('sadasd')
+
+    function setCookie(cookieName,value,expiredays)
+    {
+        var exdate=new Date();
+        exdate.setDate(exdate.getDate() + expiredays);//modify the day value of the date
+        var ss = cookieName + "=" + escape(value) + "; expires=" + exdate.toUTCString() + ";";
+        alert(ss);
+        document.cookie = ss;
+    }
+        
+    function getCookie(cookieName)
+    {
+    var  c_start , c_end, res="";
+
+            c_start = document.cookie.indexOf(cookieName + "=");
+            if (c_start != -1){ 
+                c_start = c_start + cookieName.length+1 ;
+                c_end = document.cookie.indexOf(";",c_start);
+                if (c_end == -1) {
+                    c_end = document.cookie.length;
+                }
+                res =  unescape(document.cookie.substring(c_start,c_end));
+            }
+            return res;
+        }
+
+        
+
+    function saveToCookie()
+    {
+        var s = document.getElementById("inText").value;
+        alert(document.cookie)
+        setCookie("Name", s, 14);
+        alert(document.cookie)
+        setCookie("Your Colour", "Blue", 14);
+        setCookie("Your Fave Team", "Chelsea", 14); 
+        alert(document.cookie)
+    }
+        
+    function readFromCookie() {
+        var whichCookie = document.getElementById("outText").value
+        var t = getCookie(whichCookie); 
+        document.getElementById("outText").value = t 
+    }
+
+
+</script>
+
+</head>
+<body >
+    Cookies 1 Javascript <br />    <br />
+
+    <input type="text" id="inText"/>
+    <input type="button" value="Type your name and click here" onclick="saveToCookie()" />
+    
+    <input type="button" value="Click to retrieve name from cookie" onclick="readFromCookie()" />
+    <input type="text" id="outText"/>
+
+</body>
+</html>

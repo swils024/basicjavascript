@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Array elements</title>
+</head>
+<body>
+    <h1>
+        Hello there</h1>
+    <h1 id='thing' style='color: #ffffff'>
+        Hello there</h1>
+    <h1 id='otherthing' style='color: #ffffff'>
+        Another Hello</h1>
+    <script type="text/javascript" language="javascript">
+
+       
+        f1();                   //call f1 now
+        setTimeout(f2, 1200);   //call f2 after 1.2 seconds
+
+        function f1() { fade('thing') };
+        function f2() { fade('otherthing') };
+
+        function fade(id) {
+            var ele = document.getElementById(id);
+            var level = 255;  //255 is FF, 240 F0, 17 is 11, 14 is E
+            var step = function () { //inner function == we've not called it yet though!==
+                            var h = level.toString(16);
+                            if (h.length < 2) { h = '0' + h; } //padding
+                            ele.style.color = '#' + h + h + h;
+                            ele.innerHTML = "Hello my level is " + ele.style.color; //level;
+                            if (level > 0) {
+                                level -= 1;
+                                setTimeout(step, Math.random * 15);
+                            }
+                        }
+            setTimeout(step, 1000);
+            ele.style.color = '#cc0000';
+            ele.innerHTML = "******** We Got Here **********";//so the outer fn is ended right?
+        }
+
+
+
+    </script>
+</body>
+</html>

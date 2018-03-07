@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Untitled Page</title>
+</head>
+<body>
+	<div id="d1" style="width:650px;"></d1>
+    <script type="text/javascript" language="javascript">
+    function aalert(s) {
+    	document.getElementById('d1').innerHTML+= "<br/><br/> " + s.replace(new RegExp("\n","g")," - ");//note RegExp to replace multis
+    	}
+    	
+
+//====== Simple Inheritance - Don't expect the secret link! ========================    
+
+
+
+
+
+//  //=================================================================================
+    //======= Crockford's Inheritance ++  - Links and all  Including calling base methods ===================
+    //=================================================================================     
+//The problem here with Cockrofts model is that his object() function is used
+//to both create sub-classses and instances. opps!
+// The Cockroft++  function:
+
+	function object(o) {
+	    var F = function() {this.base=o;};//mod by tony 
+	    F.prototype = o;
+	    return new F();
+    }
+
+//The super "Class" ========================
+
+    var Vehicle=object(Object);
+    
+    Vehicle.vType="no type";
+    Vehicle.make="no make";
+    Vehicle.model="no model";
+    Vehicle.colour="no colour";  
+    Vehicle.wheels=4;
+    Vehicle.getMake=function(){return "base method: " + this.make;};
+    Vehicle.getWheels=function(){return "base method reads added base prop:" + this.wheels;}
+
+//The sub "Class" ========================
+    var Car = object(Vehicle);
+    Car.colour="silver";
+    Car.doors=4;
+    Car.drive = function(){return "Driving " + this.doors + ' ' + this.wheels;}
+    
+    var c1 = object(Car);
+
+//The sub-sub "Class"======================
+    var BMW = object(Car);
+
+   BMW.drive=function(){var s = this.base.base.drive(); return ("faster " + s)   ;  }
+   
+   var b1 =  object(BMW);
+   var b2 = object(BMW);
+   b1.doors = 2;b1.wheels = 6;
+   
+   
+//======================================================================
+//========== Reflection Reader ==============================================
+//======================================================================
+var GetMembers = function(obj){
+    var memberArray = [];
+    for (var s in obj)
+    { var i=0;
+        memberArray[memberArray.length] = typeof(obj[s])  
+        memberArray[memberArray.length] = s;  //inserted at the NEW length
+    } 
+    return memberArray;
+}; 
+ 
+
+var TestReflection = function(anyObject,objName)
+{
+    var props = GetMembers(anyObject);
+	var resString ="<br/> Reflection on: " + objName + '<br/>';
+    //var resString="";
+    for (var i=0;i<props.length;i+=2)
+    {
+    try{
+    	
+    resString += ('<br/>' + props[i] + " : " + props[i+1] + " = " + String(anyObject[String(props[i+1])]));
+        }catch(e){}
+    }
+    aalert(resString);
+}
+
+
+
+//TestReflection(Vehicle ,"Vehicle");
+//TestReflection(Car, "Car");
+//TestReflection(b2, "b2");
+
+aalert (c1.drive());
+
+aalert(b1.drive());
+aalert(b2.drive());
+
+    </script>
+</body>
+</html>

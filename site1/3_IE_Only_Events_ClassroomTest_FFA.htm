@@ -1,0 +1,124 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.partyark.co.uk">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>IE Event Test</title>
+    <style type="text/css">
+        *
+        {
+            font-family: Arial;
+            font-size: 10px;
+        }
+        div
+        {
+            width: 350px;
+            float: left;
+            padding: 10px;
+        }
+        p
+        {
+            width: 300px;
+            border: solid 1px Black;
+            background-color: #ddd;
+            padding: 5px;
+        }
+        strong
+        {
+            color: Red;
+            font-weight: normal;
+        }
+    </style>
+
+    <script type="text/javascript">
+        window.onload = function() {
+        
+            var button = document.getElementById("button");
+            var para = document.getElementById("para");
+            var input = document.getElementById("input");
+            if(button.attachEvent)
+                { 
+                  button.attachEvent("onclick", handleClick);
+                  para.attachEvent("onmouseover", handleClick);
+                  input.attachEvent("onfocus", handleClick);
+                 }
+            else
+                { alert('you need IE for this to make any sense');}
+        };
+
+        function handleClick(e) {
+        
+            var s = "";
+        
+        
+            var we = document.getElementById("we");
+            var el = document.getElementById("el")
+            //thiss is not associated with the div called thiss.
+            //Classroom explain why
+            we.innerHTML = s;
+            el.innerHTML = s;
+            thiss.innerHTML=s;
+            
+            s = (e.srcElement.id + ' was triggered at: ' + e.clientX + ', ' + e.clientY);
+            s +="<br/>e and window.event are same object: " + (e === window.event);
+            s +="<br/>"
+            s +="<br/>'this' and 'window' are the same object: " + (this === window);
+            s +="<br/>'this.event' and 'window.event'  are the same object: " + (this.event === window.event);
+           
+            para.innerHTML=s;
+            
+            s="";
+            
+            for (var p in e) {
+	            if (e[p] != window.event[p])
+	               { s += "<strong>e and window.event differ for property: " + p + "</strong><br />"; }
+	            else
+	               { s += "e and window.event are the same for property: " + p + "<br />"; }     
+            };
+            el.innerHTML = s;
+            
+            
+            s = ""; 
+            for (var p in window) {
+              try{
+	            if (this[p] !=   window[p])
+	                {s += "<strong>window and this differ for property: " + p + "</strong><br />";}
+            	else
+                    { s += "window and this are the same for property: " + p + "<br />"; }  
+               }//end try
+            catch(er)
+            { s += "problem evaluating: " + p + "<br />";}
+            }//end for
+            we.innerHTML = s;
+            
+             s = ""; 
+            for (var p in window.event) {
+            try{
+	            if (this.event[p] &&   window.event[p] && (this.event[p] !=   window.event[p]))
+	                {s += "<strong>this.event and window.event differ for property: " + p + "</strong><br />";}
+            	else
+                    { s += "this.event and window.event are the same for property: " + p + "<br />"; }  
+                }//end try
+            catch(er)
+            { s += "problem evaluating: " + p + "<br />";}
+            }//end for
+            thiss.innerHTML = s;
+            
+      }      
+      
+
+    </script>
+
+</head>
+<body>
+    <button id="button">
+        Click Me</button>
+    <input type="text" value="Focus Me!" id="input" />
+    <p id="para">
+        Mouse Over Me!__________________________________</p>
+    <div id="el">
+    </div>
+    <div id="we">
+    </div>
+    <div id="thiss">
+    </div>
+</body>
+</html>

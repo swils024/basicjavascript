@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Untitled Page</title>
+</head>
+<body>
+<script>
+
+    String.prototype.swap = function (oldVal, newVal) {
+        var reg = new RegExp(oldVal, 'gi');
+        return this.replace(reg, newVal);
+    }
+
+    var s = "Belfast is in NI and belfast is great" + ' because i "love" Belfast ';
+    
+    //NO!
+    s = s.replace('belfast', 'dublin'); 
+    
+    //s = s.swap('belfast', 'dublin');
+    alert(s);
+    
+    //YES!
+
+    
+
+    //s = replaceAll(s,'belfast', 'dublin');
+    //===================================
+ 
+
+   //    function replaceAll(str, oldVal, newVal)
+   //    {
+   //        str = str.replace(new RegExp(oldVal,'g'), newVal);
+   //    }
+
+
+    s = s.swap('belfast','dublin');
+    
+    alert (s);
+    var t = s.swap('is','is always');
+    alert (t);
+
+    
+     //var t = s.swap('is','is always');
+    //alert (t);
+</script>
+</body>
+</html>
